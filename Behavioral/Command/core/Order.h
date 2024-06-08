@@ -1,34 +1,37 @@
+#ifndef ORDER_H
+#define ORDER_H
+
+#include <vector>
 #include <iostream>
 #include <random>
-#include <vector>
-#include <memory>
-#include <algorithm>
-#include"Product.h"
-#include "orderLine.cpp"
+#include "OrderLine.h"
+#include "Product.h"
 using namespace std;
 
-class Order{
+class Order {
 private:
-    int Id;
-    vector<orderLine> lines;
-
     static int generateRandomId() {
-        static random_device rd;  // number generator used to seed the random number engine
-        static mt19937 gen(rd());  // standard random number engine in c++, seeded from the value from random_device
-        static uniform_int_distribution<> dis(1, 1000);  // ensure that the numbers generated are uniformaly distributed across the specified range
+        static random_device rd;
+        static mt19937 gen(rd());
+        static uniform_int_distribution<> dis(1, 1000);
         return dis(gen);
     }
 
+    int Id;
+    vector<OrderLine> lines;
+
 public:
     Order() : Id(generateRandomId()) {}
+    int getId() const {return Id;}
+    const vector <OrderLine>& getLines() const {return lines;}
 
-    int gerId() const {return Id;}
-    const vector<orderLine>& getLines() const {return lines;}
-
-    void addProduct(const Product& product, int quantity){
-        lines.push_back(orderLine{product.getId(), product.getUnitPrice(), quantity});
+    void addProduct(const Product& product, double quantity) {
+        lines.emplace_back(product.getId(), quantity, product.getUnitPrice());
         cout << "\033[33m";
-        cout << "Prodcut `" << product.getName() << "` added, order now contains " << lines.size() << endl;
+        cout << "product `" << product.getName() << "` added, order now contains " << lines.size() << " products" << endl;
         cout << "\033[0m";
     }
+
 };
+
+#endif // ORDER_H
