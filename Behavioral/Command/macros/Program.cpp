@@ -10,33 +10,8 @@
 #include <memory>
 MacroStorage* macro_ = new MacroStorage(); 
 
-void replayMacro() {
-    cout << "Enter macro ID: " << endl;
-    for(const auto& macro : macro_->getMacros()) {
-        // convert the time_point to a readable string format
-        time_t createdAtTimeT = chrono::system_clock::to_time_t(macro.getCreatedAt());
-        cout << macro.getId() << "(commands count: " << macro.getCommands().size() << ", created at " << ctime(&createdAtTimeT) << '\n';
-    }
-    int macroId;
-    cin >> macroId;
-    try{
-        const Macro& selectedMacro = macro_->getMacro(macroId);
-        Order order;
-        commandInvoker invoker;
-        for(auto& command : selectedMacro.getCommands()){
-            if(auto addProd = dynamic_cast<addProduct*>(command.get())){
-                addProd -> order = order;
-            }
-            invoker.AddCommand(command);
-        }
-        invoker.ExecuteCommands();
-    }
-    catch(const runtime_error& e){
-        cout << e.what() << endl;  // handle error if macro is not found
-    }
-}
-
 int main() {
+    void replayMacro();
     Product laptop(1, "laptop", 20000, 10);
     Product keyboard(2, "keyboard", 300, 50);
     Product mouse(3, "mouse", 150, 70);
@@ -99,3 +74,28 @@ int main() {
     return 0;
 }
 
+void replayMacro() {
+    cout << "Enter macro ID: " << endl;
+    for(const auto& macro : macro_->getMacros()) {
+        // convert the time_point to a readable string format
+        time_t createdAtTimeT = chrono::system_clock::to_time_t(macro.getCreatedAt());
+        cout << macro.getId() << "(commands count: " << macro.getCommands().size() << ", created at " << ctime(&createdAtTimeT) << '\n';
+    }
+    int macroId;
+    cin >> macroId;
+    try{
+        const Macro& selectedMacro = macro_->getMacro(macroId);
+        Order order;
+        commandInvoker invoker;
+        for(auto& command : selectedMacro.getCommands()){
+            if(auto addProd = dynamic_cast<addProduct*>(command.get())){
+                addProd -> order = order;
+            }
+            invoker.AddCommand(command);
+        }
+        invoker.ExecuteCommands();
+    }
+    catch(const runtime_error& e){
+        cout << e.what() << endl;  // handle error if macro is not found
+    }
+}
