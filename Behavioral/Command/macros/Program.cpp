@@ -1,12 +1,40 @@
+#include"core/Product.h"
+#include"core/Order.h"
+#include"C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\commandInvoker.h"
+#include"C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\addStock.h"
+#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\addProduct.h"
+#include"C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\MacroStorage.h"
 #include <iostream>
-#include <vector>
 #include <numeric>
+#include <vector>
 #include <memory>
-#include "core/Product.h"
-#include "core/Order.h"
-#include "core/commands/commandInvoker.h"
-#include "core/commands/addProduct.h"
-#include "core/commands/addStock.h"
+MacroStorage* macro_ = new MacroStorage(); 
+
+void replayMacro() {
+    cout << "Enter macro ID: " << endl;
+    for(const auto& macro : macro_->getMacros()) {
+        // convert the time_point to a readable string format
+        time_t createdAtTimeT = chrono::system_clock::to_time_t(macro.getCreatedAt());
+        cout << macro.getId() << "(commands count: " << macro.getCommands().size() << ", created at " << ctime(&createdAtTimeT) << '\n';
+    }
+    int macroId;
+    cin >> macroId;
+    try{
+        const Macro& selectedMacro = macro_->getMacro(macroId);
+        Order order;
+        commandInvoker invoker;
+        for(auto& command : selectedMacro.getCommands()){
+            if(auto addProd = dynamic_cast<addProduct*>(command.get())){
+                addProd -> order = order;
+            }
+            invoker.AddCommand(command);
+        }
+        invoker.ExecuteCommands();
+    }
+    catch(const runtime_error& e){
+        cout << e.what() << endl;  // handle error if macro is not found
+    }
+}
 
 int main() {
     Product laptop(1, "laptop", 20000, 10);
@@ -15,12 +43,14 @@ int main() {
 
     while(true) {
         Order order;
-        commandInvoker invoker;        
+        commandInvoker invoker;     
         while(true) {
             cout << "Select one of the below commands: " << endl;
             cout << "\t1. add laptop" << endl;
             cout << "\t2. add keyboard" << endl;
             cout << "\t3. add mouse" << endl;
+            cout << "\t4. save macro" << endl;
+            cout << "\t5. replay macro" << endl;
             cout << "\t0. process and exit" << endl;
 
             int commandId;
@@ -38,6 +68,15 @@ int main() {
                 invoker.AddCommand(make_shared<addProduct>(order, mouse, 1));
                 invoker.AddCommand(make_shared<addStock>(mouse, -1));
             }
+            else if(commandId == 4) {
+                macro_ ->createMacro(invoker.getCommands());
+                invoker.clearCommands();
+            }
+
+            else if(commandId == 5) {
+                replayMacro();
+            }
+
             else if(commandId == 0) {
                 invoker.ExecuteCommands();
                 double totalQuantity = accumulate(order.getLines().begin(), order.getLines().end(), 0.0, 
@@ -59,3 +98,4 @@ int main() {
     }
     return 0;
 }
+
