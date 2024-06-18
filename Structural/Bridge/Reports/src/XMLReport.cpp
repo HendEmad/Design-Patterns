@@ -1,4 +1,4 @@
-#include "Structural\Bridge\Reports\include\XMLReport.h"
+#include "Bridge/Reports/include\XMLReport.h"
 
 std::string XMLReport::showG1Report() const {
     return "<studentReport>This is grade1 report. </studentReport>";

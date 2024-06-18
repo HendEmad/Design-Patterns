@@ -1,9 +1,9 @@
 #include"core/Product.h"
 #include"core/Order.h"
-#include"C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\commandInvoker.h"
-#include"C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\addStock.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\addProduct.h"
-#include"C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\MacroStorage.h"
+#include"Behavioral/Command/macros/core/commands/commandInvoker.h"
+#include"Behavioral/Command/macros/core/commands/addStock.h"
+#include "Behavioral/Command/macros/core/commands/addProduct.h"
+#include"Behavioral/Command/macros/core/commands/MacroStorage.h"
 #include <iostream>
 #include <numeric>
 #include <vector>

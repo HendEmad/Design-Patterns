@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include "C:\Users\Data-DCS\Design-Patterns\Singleton\Counter.h"
+#include "Singleton/Counter.h"
 using namespace std;
 
 int main() {

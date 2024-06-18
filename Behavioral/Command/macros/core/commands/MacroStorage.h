@@ -5,8 +5,8 @@
 #include <vector>
 #include <memory>
 #include <algorithm>
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\Macro.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\macros\core\commands\ICommand.h"
+#include "Behavioral/Command/macros/core/commands/Macro.h"
+#include "Behavioral/Command/macros/core/commands/ICommand.h"
 using namespace std;
 
 class MacroStorage {

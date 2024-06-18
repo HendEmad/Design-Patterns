@@ -1,8 +1,7 @@
 #ifndef GRADE_1_REPORT_H
 #define GRADE_1_REPORT_H
 
-#include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Grades\GradeReport.h"
-// #include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Reports\include\ReportBridge.h"
+#include "Bridge/Grades/GradeReport.h"
 #include <string>
 #include <memory>
 using namespace std;

@@ -1,6 +1,6 @@
 #include "ICommand.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\core\Order.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\Command\core\Product.h"
+#include "Behavioral/Command/core/Order.h"
+#include "Behavioral/Command/core/Product.h"
 
 class addProduct : public ICommand{
     Order& _order;

@@ -5,8 +5,8 @@
 #include "core/Product.h"
 #include "core/Order.h"
 #include "core/commands/commandInvoker.h"
-#include "C:/Users/Data-DCS/Design-Patterns/Behavioral/Command/Basic_implementation/core/commands/addProduct.h"
-#include "C:/Users/Data-DCS/Design-Patterns/Behavioral/Command/Basic_implementation/core/commands/addStock.h"
+#include "Behavioral/Command/Basic_implementation/core/commands/addProduct.h"
+#include "Behavioral/Command/Basic_implementation/core/commands/addStock.h"
 
 int main() {
     Product laptop(1, "laptop", 20000, 10);

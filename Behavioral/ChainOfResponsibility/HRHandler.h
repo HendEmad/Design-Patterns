@@ -1,5 +1,5 @@
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\ChainOfResponsibility\BaseHandler.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\ChainOfResponsibility\JobApplication.h"
+#include "Behavioral/ChainOfResponsibility/BaseHandler.h"
+#include "Behavioral/ChainOfResponsibility/JobApplication.h"
 #include <memory>
 
 #ifndef HR_HANDLER_H

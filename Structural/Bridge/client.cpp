@@ -1,7 +1,5 @@
-#include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Grades\grade1Report.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Reports\include\HTMLReport.h"
-// #include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Reports\include\TXTReport.h"
-// #include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Reports\include\XMLReport.h"
+#include "Bridge/Grades/grade1Report.h"
+#include "Bridge/Reports/include/HTMLReport.h"
 #include <iostream>
 #include <memory>
 using namespace std;

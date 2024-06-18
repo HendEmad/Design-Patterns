@@ -1,4 +1,4 @@
-#include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Reports\include\HTMLReport.h"
+#include "Bridge/Reports/include/HTMLReport.h"
 
 std::string HTMLReport::showG1Report() const {
     return "<h1>This is grade1 report.</h1>";

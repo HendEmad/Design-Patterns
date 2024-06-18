@@ -1,7 +1,7 @@
 #ifndef TXT_REPORT_H
 #define TXT_REPORT_H
 
-#include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Reports\include\ReportBridge.h"
+#include "Bridge/Reports/include/ReportBridge.h"
 
 class TXTReport : public ReportBridge {
 public:

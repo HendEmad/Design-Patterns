@@ -2,7 +2,7 @@
 #define HTML_REPORT_H
 
 
-#include "C:\Users\Data-DCS\Design-Patterns\Structural\Bridge\Reports\include\ReportBridge.h"
+#include "Bridge/Reports/include/ReportBridge.h"
 #include <string>
 
 class HTMLReport : public ReportBridge {

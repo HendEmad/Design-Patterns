@@ -1,9 +1,9 @@
 #include <iostream>
 #include <memory>
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\ChainOfResponsibility\BaseHandler.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\ChainOfResponsibility\HRHandler.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\ChainOfResponsibility\JobApplication.h"
-#include "C:\Users\Data-DCS\Design-Patterns\Behavioral\ChainOfResponsibility\TechHandler.h"
+#include "Behavioral/ChainOfResponsibility/BaseHandler.h"
+#include "Behavioral/ChainOfResponsibility/HRHandler.h"
+#include "Behavioral/ChainOfResponsibility/JobApplication.h"
+#include "Behavioral/ChainOfResponsibility/TechHandler.h"
 using namespace std;
 
 int main() {
